@@ -1,11 +1,27 @@
   <?php
   // CSS・JSの読み込み
-  function grain_scripts() {
+  function grain_scripts()
+  {
+    wp_enqueue_style(
+      'grain-reset',
+      get_template_directory_uri() . '/reset.css',
+      [],
+      '1.0'
+    );
+
     wp_enqueue_style(
       'grain-style',
       get_template_directory_uri() . '/css/style.css',
-      [],
+      ['grain-reset'],
       '1.0'
+    );
+
+    wp_enqueue_script(
+      'grain-animation',
+      get_template_directory_uri() . '/animation.js',
+      [],
+      '1.0',
+      true
     );
 
     wp_enqueue_script(
@@ -18,3 +34,4 @@
   }
   add_action('wp_enqueue_scripts', 'grain_scripts');
 
+  add_filter('show_admin_bar', '__return_false');
