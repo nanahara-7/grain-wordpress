@@ -34,4 +34,15 @@
   }
   add_action('wp_enqueue_scripts', 'grain_scripts');
 
-  add_filter('show_admin_bar', '__return_false');
+// アイキャッチ画像を有効化
+add_theme_support('post-thumbnails');
+
+// 管理バーを非表示
+add_filter('show_admin_bar', '__return_false');
+
+// WordPressデフォルトスタイルを削除
+add_action('wp_enqueue_scripts', function () {
+  wp_dequeue_style('global-styles');
+  wp_dequeue_style('classic-theme-styles');
+}, 20);
+
