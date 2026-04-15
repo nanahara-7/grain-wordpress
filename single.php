@@ -48,6 +48,43 @@
             <?php the_content(); ?>
           </div>
 
+          <!-- 商品情報ボックス（カスタムフィールド） -->
+          <?php
+          $sale_period = get_field('sale_period');
+          $price       = get_field('price');
+          $quantity    = get_field('quantity');
+          if ($sale_period || $price || $quantity) :
+          ?>
+          <div class="post-article__info-box">
+            <p class="post-article__info-heading">商品情報</p>
+            <dl class="post-article__info-list">
+              <?php if ($sale_period) : ?>
+              <div class="post-article__info-row">
+                <dt class="post-article__info-term">販売期間</dt>
+                <dd class="post-article__info-desc"><?php echo esc_html($sale_period); ?></dd>
+              </div>
+              <?php endif; ?>
+              <?php if ($price) : ?>
+              <div class="post-article__info-row">
+                <dt class="post-article__info-term">価格</dt>
+                <dd class="post-article__info-desc"><?php echo esc_html($price); ?></dd>
+              </div>
+              <?php endif; ?>
+              <?php if ($quantity) : ?>
+              <div class="post-article__info-row">
+                <dt class="post-article__info-term">数量</dt>
+                <dd class="post-article__info-desc"><?php echo esc_html($quantity); ?></dd>
+              </div>
+              <?php endif; ?>
+            </dl>
+          </div>
+          <?php endif; ?>
+
+          <!-- 締めのテキスト（カスタムフィールド） -->
+          <?php $closing_text = get_field('closing_text'); if ($closing_text) : ?>
+          <p class="post-article__text"><?php echo esc_html($closing_text); ?></p>
+          <?php endif; ?>
+
           <hr class="post-article__divider" />
 
           <!-- 前後記事ナビゲーション -->
