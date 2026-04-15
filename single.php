@@ -48,7 +48,13 @@
             <?php the_content(); ?>
           </div>
 
-          <!-- 商品情報ボックス（カスタムフィールド） -->
+          <?php
+          $categories = get_the_category();
+          $cat_name   = (!empty($categories)) ? $categories[0]->name : '';
+          ?>
+
+          <?php if ($cat_name === '新商品' || $cat_name === '季節限定') : ?>
+          <!-- 商品情報ボックス（新商品・季節限定） -->
           <?php
           $sale_period = get_field('sale_period');
           $price       = get_field('price');
@@ -78,6 +84,41 @@
               <?php endif; ?>
             </dl>
           </div>
+          <?php endif; ?>
+
+          <?php elseif ($cat_name === 'イベント') : ?>
+          <!-- 開催情報ボックス（イベント） -->
+          <?php
+          $event_date     = get_field('event_date_');
+          $event_place    = get_field('event_place_');
+          $event_capacity = get_field('event_capacity_');
+          if ($event_date || $event_place || $event_capacity) :
+          ?>
+          <div class="post-article__info-box">
+            <p class="post-article__info-heading">開催情報</p>
+            <dl class="post-article__info-list">
+              <?php if ($event_date) : ?>
+              <div class="post-article__info-row">
+                <dt class="post-article__info-term">開催日時</dt>
+                <dd class="post-article__info-desc"><?php echo esc_html($event_date); ?></dd>
+              </div>
+              <?php endif; ?>
+              <?php if ($event_place) : ?>
+              <div class="post-article__info-row">
+                <dt class="post-article__info-term">開催場所</dt>
+                <dd class="post-article__info-desc"><?php echo esc_html($event_place); ?></dd>
+              </div>
+              <?php endif; ?>
+              <?php if ($event_capacity) : ?>
+              <div class="post-article__info-row">
+                <dt class="post-article__info-term">定員</dt>
+                <dd class="post-article__info-desc"><?php echo esc_html($event_capacity); ?></dd>
+              </div>
+              <?php endif; ?>
+            </dl>
+          </div>
+          <?php endif; ?>
+
           <?php endif; ?>
 
           <!-- 締めのテキスト（カスタムフィールド） -->
