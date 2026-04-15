@@ -33,12 +33,14 @@
 
         <!-- 記事一覧（WordPressの投稿から動的生成） -->
         <?php
+        $paged = get_query_var('paged') ? intval(get_query_var('paged')) : 1;
         $news_query = new WP_Query([
           'post_type'      => 'post',
-          'posts_per_page' => -1,
+          'posts_per_page' => 6,
           'post_status'    => 'publish',
           'orderby'        => 'date',
           'order'          => 'DESC',
+          'paged'          => $paged,
         ]);
         ?>
 
@@ -78,22 +80,35 @@
           <?php endwhile; wp_reset_postdata(); endif; ?>
         </ul>
 
-        <!-- パンくずリスト -->
-        <nav class="contact-breadcrumb" aria-label="パンくずリスト">
-          <ol class="contact-breadcrumb__list">
-            <li class="contact-breadcrumb__item">
-              <a href="<?php echo home_url('/'); ?>" class="contact-breadcrumb__link">ホーム</a>
-            </li>
-            <li class="contact-breadcrumb__item contact-breadcrumb__item--current" aria-current="page">
-              お知らせ
-            </li>
-          </ol>
+        <!-- ページネーション -->
+        <?php if ($news_query->max_num_pages > 1) : ?>
+        <nav class="news-pagination" aria-label="ページナビゲーション">
+          <?php echo paginate_links([
+            'base'      => trailingslashit(get_permalink()) . '%_%',
+            'format'    => 'page/%#%/',
+            'total'     => $news_query->max_num_pages,
+            'current'   => $paged,
+            'prev_next' => false,
+          ]); ?>
         </nav>
+        <?php endif; ?>
 
       </div>
     </div>
   </div>
 </section>
+
+<!-- パンくずリスト -->
+<nav class="contact-breadcrumb" aria-label="パンくずリスト">
+  <ol class="contact-breadcrumb__list">
+    <li class="contact-breadcrumb__item">
+      <a href="<?php echo home_url('/'); ?>" class="contact-breadcrumb__link">ホーム</a>
+    </li>
+    <li class="contact-breadcrumb__item contact-breadcrumb__item--current" aria-current="page">
+      お知らせ
+    </li>
+  </ol>
+</nav>
 
 <!-- contactセクション -->
 <section class="contact">
