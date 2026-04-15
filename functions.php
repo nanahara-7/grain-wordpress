@@ -37,6 +37,13 @@
 // アイキャッチ画像を有効化
 add_theme_support('post-thumbnails');
 
+// 固定ページのページネーションを有効化
+add_action('pre_get_posts', function ($query) {
+  if (!is_admin() && $query->is_main_query() && is_page('news')) {
+    $query->set('posts_per_page', 6);
+  }
+});
+
 // 管理バーを非表示
 add_filter('show_admin_bar', '__return_false');
 
