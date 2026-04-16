@@ -1,3 +1,11 @@
+// お問い合わせ種別セレクトのプレースホルダー制御
+const categorySelect = document.querySelector('[name="your-category"]');
+if (categorySelect) {
+  const placeholder = categorySelect.options[0];
+  placeholder.disabled = true;
+  placeholder.selected = true;
+}
+
 // ページトップボタン
 const pageTopBtn = document.querySelector('.page-top');
 
