@@ -18,7 +18,7 @@
 
     wp_enqueue_script(
       'grain-animation',
-      get_template_directory_uri() . '/animation.js',
+      get_template_directory_uri() . '/js/animation.js',
       [],
       '1.0',
       true
@@ -26,7 +26,7 @@
 
     wp_enqueue_script(
       'grain-script',
-      get_template_directory_uri() . '/script.js',
+      get_template_directory_uri() . '/js/script.js',
       [],
       '1.0',
       true
