@@ -7,6 +7,15 @@
     <?php if (isset($page_description)) : ?>
     <meta name="description" content="<?php echo esc_attr($page_description); ?>" />
     <?php endif; ?>
+    <meta property="og:site_name" content="GRAIN" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo home_url(add_query_arg(null, null)); ?>" />
+    <meta property="og:title" content="<?php wp_title('|', true, 'right'); ?>GRAIN" />
+    <?php if (isset($page_description)) : ?>
+    <meta property="og:description" content="<?php echo esc_attr($page_description); ?>" />
+    <?php endif; ?>
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/OGP.jpg" />
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" />
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/Apple-Touch-Icon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
