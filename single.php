@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php $page_description = get_the_excerpt(); get_header(); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

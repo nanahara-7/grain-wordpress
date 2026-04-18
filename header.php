@@ -4,6 +4,11 @@
   <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php if (isset($page_description)) : ?>
+    <meta name="description" content="<?php echo esc_attr($page_description); ?>" />
+    <?php endif; ?>
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/Apple-Touch-Icon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet" />

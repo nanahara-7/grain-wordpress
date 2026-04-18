@@ -53,3 +53,17 @@ add_action('wp_enqueue_scripts', function () {
   wp_dequeue_style('classic-theme-styles');
 }, 20);
 
+
+
+add_action( 'wp_footer', 'mycustom_wp_footer' );
+  
+function mycustom_wp_footer() {
+?>
+<script type="text/javascript">
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/thanks';
+}, false );
+</script>
+<?php
+}
+

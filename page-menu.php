@@ -1,4 +1,4 @@
-  <?php get_header(); ?>
+  <?php $page_description = 'GRAINのメニュー一覧。食パン・クロワッサン・コーヒーなどこだわりの商品をご紹介します。'; get_header(); ?>
 
   <!-- メニューFVセクション -->
   <section class="menu-fv">

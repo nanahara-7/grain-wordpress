@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php $page_description = 'お問い合わせを受け付けました。内容を確認後、2〜3営業日以内にご連絡いたします。'; get_header(); ?>
 
     <!-- FV -->
     <section class="contact-fv">

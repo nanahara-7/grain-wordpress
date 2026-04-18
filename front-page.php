@@ -1,4 +1,4 @@
-  <?php get_header(); ?>                                                                                                                                                        
+  <?php $page_description = '大阪のベーカリーカフェGRAIN。毎朝焼きたてのパンとこだわりのコーヒーをお届けします。'; get_header(); ?>                                                                                                                                                        
                                                                                                                                                                                   
   <section class="hero">                                                                                                                                                          
     <div class="hero__inner">                                                                                                                                                     

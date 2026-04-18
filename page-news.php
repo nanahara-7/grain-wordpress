@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php $page_description = 'GRAINのお知らせ一覧。新商品情報やイベント情報をお届けします。'; get_header(); ?>
 
 <!-- ニュースFVセクション -->
 <section class="news-fv">

@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php $page_description = 'GRAINへのお問い合わせ。ご予約やメニューに関するお問い合わせはこちらからどうぞ。'; get_header(); ?>
 
     <!-- FV -->
     <section class="contact-fv">

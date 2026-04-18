@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php $page_description = 'GRAINの個人情報保護方針についてご説明します。'; get_header(); ?>
 
     <!-- FV -->
     <section class="contact-fv">

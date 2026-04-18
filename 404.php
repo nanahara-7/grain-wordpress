@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php $page_description = 'お探しのページは見つかりませんでした。'; get_header(); ?>
 
     <!-- FV -->
     <section class="contact-fv">
